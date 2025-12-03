@@ -1,21 +1,18 @@
-﻿using System.Data;
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using MVC_Update.Model;
 
 namespace MVC_Update.Controller
 {
-    public class EpisodeController
+    internal class AuthorController
     {
         private string connectionString = @"Data Source=.;Initial Catalog=DoctorWho;Integrated Security=True;Persist Security Info=False;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True";
 
-        public List<EpisodeModel> ReadAll()
+        public List<AuthorModel> ReadAll()
         {
-            List<EpisodeModel> items = new List<EpisodeModel>();
+            List<AuthorModel> items = new List<AuthorModel>();
 
             string sqlQuery = "SELECT * " +
-                "FROM tblEpisode " +
-                "INNER JOIN tblAuthor " +
-                "ON tblEpisode.AuthorId = tblAuthor.AuthorId;";
+                "FROM tblAuthor";
 
             using SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
@@ -25,28 +22,16 @@ namespace MVC_Update.Controller
 
             while (reader.Read())
             {
-                AuthorModel author = new AuthorModel(
+                AuthorModel model = new AuthorModel(
                     (int)reader["AuthorId"],
                     (string)reader["AuthorName"]
                 );
 
-                EpisodeModel model = new EpisodeModel(
-                    (int)       reader["EpisodeId"],
-                    (string)    reader["Title"],
-                    DateOnly.FromDateTime(reader.GetDateTime("EpisodeDate")),
-                    author
-                );
 
                 items.Add(model);
             }
 
             return items;
         }
-
-
-        public void Update(EpisodeModel model) {
-            // TODO
-        }
     }
 }
-

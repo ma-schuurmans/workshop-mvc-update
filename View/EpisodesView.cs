@@ -16,7 +16,7 @@ namespace MVC_Update
 
             lvEpisodes.Columns.Add("Title", 200);
             lvEpisodes.Columns.Add("Date", 100);
-            lvEpisodes.Columns.Add("AuthorId", 100);
+            lvEpisodes.Columns.Add("Author", 100);
 
             refreshListview();
         }
@@ -30,7 +30,8 @@ namespace MVC_Update
                 ListViewItem lvItem = new ListViewItem([
                     episode.Title,
                     episode.Date.ToString(),
-                    episode.AuthorId.ToString()]
+                    episode.Author.Name
+                    ]
                 );
 
                 lvItem.Tag = episode;

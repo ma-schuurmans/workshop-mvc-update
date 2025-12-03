@@ -5,14 +5,14 @@
         public int Id { get; set; }
         public string Title { get; set; }
         public DateOnly Date { get; set; }
-        public int AuthorId { get; set; }
+        public AuthorModel Author { get; set; }
 
-        public EpisodeModel(int id, string title, DateOnly date, int authorId)
+        public EpisodeModel(int id, string title, DateOnly date, AuthorModel author)
         {
             Id = id;
             Title = title;
             Date = date;
-            AuthorId = authorId;
+            Author = author;
         }
     }
 }

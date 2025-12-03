@@ -32,10 +32,10 @@
             label2 = new Label();
             tbTitle = new TextBox();
             label3 = new Label();
-            tbAuthor = new TextBox();
             label4 = new Label();
             btnUpdate = new Button();
             dtpDate = new DateTimePicker();
+            cboAuteur = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -75,22 +75,15 @@
             label3.TabIndex = 3;
             label3.Text = "Datum";
             // 
-            // tbAuthor
-            // 
-            tbAuthor.Location = new Point(42, 310);
-            tbAuthor.Name = "tbAuthor";
-            tbAuthor.Size = new Size(357, 27);
-            tbAuthor.TabIndex = 3;
-            // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             label4.Location = new Point(42, 287);
             label4.Name = "label4";
-            label4.Size = new Size(90, 20);
+            label4.Size = new Size(58, 20);
             label4.TabIndex = 5;
-            label4.Text = "Auteur (ID)";
+            label4.Text = "Auteur";
             // 
             // btnUpdate
             // 
@@ -112,15 +105,23 @@
             dtpDate.Size = new Size(357, 27);
             dtpDate.TabIndex = 2;
             // 
+            // cboAuteur
+            // 
+            cboAuteur.FormattingEnabled = true;
+            cboAuteur.Location = new Point(42, 310);
+            cboAuteur.Name = "cboAuteur";
+            cboAuteur.Size = new Size(364, 28);
+            cboAuteur.TabIndex = 6;
+            // 
             // EpisodeUpdateView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(456, 450);
+            Controls.Add(cboAuteur);
             Controls.Add(dtpDate);
             Controls.Add(btnUpdate);
-            Controls.Add(tbAuthor);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(tbTitle);
@@ -138,9 +139,9 @@
         private Label label2;
         private TextBox tbTitle;
         private Label label3;
-        private TextBox tbAuthor;
         private Label label4;
         private Button btnUpdate;
         private DateTimePicker dtpDate;
+        private ComboBox cboAuteur;
     }
 }
